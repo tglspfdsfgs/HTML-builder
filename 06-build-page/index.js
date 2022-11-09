@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 (async function() {
-  try {    
+  try {
+    await promises.rm(path.resolve(process.argv[1], 'project-dist'), { recursive: true, force: true });
+    
     await promises.mkdir(path.resolve(process.argv[1], 'project-dist'), { recursive: true });
 
     await copyDir(path.resolve(process.argv[1], 'assets'), path.resolve(process.argv[1], 'project-dist', 'assets'));
