@@ -9,7 +9,7 @@ const output = fs.createWriteStream(path.resolve(process.argv[1], 'text.txt'))
 
 stdin.on('data', data => {
   let string = data.toString();
-  if ( string.startsWith("exit")) {
+  if ( string.startsWith("exit") && string.trim().length == 4) {
     process.exit();
   } else {
     output.write(string);
